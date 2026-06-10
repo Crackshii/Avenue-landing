@@ -3,7 +3,6 @@
 <head>
     <title>Avenue la Beauté — Салон красоты</title>
     <meta charset="UTF-8">
-    <!-- PROTECTED: meta type -->
     <meta name="type" value="app" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="Avenue la Beauté — Салон красоты">
@@ -11,867 +10,7 @@
     <meta property="og:type" content="website">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        :root {
-            --cream: #F5F0E8;
-            --warm-white: #FAF7F2;
-            --gold: #C9A96E;
-            --gold-light: #D4B88A;
-            --gold-dark: #A8854A;
-            --sand: #E8DCC8;
-            --taupe: #9E8E7A;
-            --dark: #2C2416;
-            --mid: #6B5B45;
-            --yellow-bg: #D4C17A;
-        }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--warm-white);
-            color: var(--dark);
-            overflow-x: hidden;
-        }
-
-        /* NAV */
-        nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px 60px;
-            background: rgba(250, 247, 242, 0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(201, 169, 110, 0.15);
-            transition: all 0.3s ease;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .nav-logo-icon {
-            width: 42px;
-            height: 42px;
-            border: 1.5px solid var(--gold);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 18px;
-            font-weight: 500;
-            color: var(--gold);
-            letter-spacing: 1px;
-        }
-
-        .nav-logo-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 14px;
-            font-weight: 400;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: var(--dark);
-            line-height: 1.3;
-        }
-
-        .nav-logo-sub {
-            font-size: 9px;
-            letter-spacing: 3px;
-            color: var(--taupe);
-            text-transform: uppercase;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 36px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            font-size: 12px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--mid);
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover { color: var(--gold); }
-
-        .nav-cta {
-            background: var(--gold);
-            color: #fff !important;
-            padding: 10px 24px;
-            letter-spacing: 1.5px;
-            font-size: 11px !important;
-            text-transform: uppercase;
-            transition: background 0.2s !important;
-        }
-
-        .nav-cta:hover { background: var(--gold-dark) !important; color: #fff !important; }
-
-        /* HERO */
-        .hero {
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            padding: 120px 60px 80px;
-            gap: 60px;
-            background: var(--warm-white);
-        }
-
-        .hero-content { max-width: 520px; }
-
-        .hero-eyebrow {
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .hero-eyebrow::before {
-            content: '';
-            display: block;
-            width: 32px;
-            height: 1px;
-            background: var(--gold);
-        }
-
-        .hero-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(44px, 5vw, 72px);
-            font-weight: 300;
-            line-height: 1.1;
-            color: var(--dark);
-            margin-bottom: 24px;
-        }
-
-        .hero-title em {
-            font-style: italic;
-            color: var(--gold);
-        }
-
-        .hero-desc {
-            font-size: 15px;
-            line-height: 1.7;
-            color: var(--taupe);
-            margin-bottom: 44px;
-            max-width: 400px;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background: var(--gold);
-            color: #fff;
-            border: none;
-            padding: 14px 32px;
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: background 0.25s, transform 0.2s;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .btn-primary:hover {
-            background: var(--gold-dark);
-            transform: translateY(-1px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--dark);
-            border: 1px solid var(--dark);
-            padding: 14px 32px;
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.25s;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .btn-outline:hover {
-            border-color: var(--gold);
-            color: var(--gold);
-        }
-
-        .hero-visual {
-            position: relative;
-            height: 580px;
-        }
-
-        .hero-img-main {
-            position: absolute;
-            right: 0; top: 0;
-            width: 75%;
-            height: 90%;
-            object-fit: cover;
-        }
-
-        .hero-img-accent {
-            position: absolute;
-            left: 0; bottom: 0;
-            width: 45%;
-            height: 55%;
-            object-fit: cover;
-            border: 6px solid var(--warm-white);
-        }
-
-        .hero-badge {
-            position: absolute;
-            top: 40px; left: 20px;
-            background: var(--cream);
-            border: 1px solid var(--sand);
-            padding: 16px 20px;
-            text-align: center;
-        }
-
-        .hero-badge-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 32px;
-            font-weight: 300;
-            color: var(--gold);
-            display: block;
-        }
-
-        .hero-badge-text {
-            font-size: 10px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--taupe);
-        }
-
-        /* SERVICES */
-        .services {
-            padding: 100px 60px;
-            background: var(--cream);
-        }
-
-        .section-header {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            margin-bottom: 56px;
-        }
-
-        .section-eyebrow {
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 12px;
-        }
-
-        .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(32px, 3.5vw, 48px);
-            font-weight: 300;
-            color: var(--dark);
-            line-height: 1.15;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: auto auto;
-            gap: 16px;
-        }
-
-        .service-card {
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .service-card:first-child {
-            grid-column: span 2;
-        }
-
-        .service-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.5s ease;
-            min-height: 220px;
-        }
-
-        .service-card:hover img { transform: scale(1.04); }
-
-        .service-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(44,36,22,0.65) 0%, transparent 60%);
-            display: flex;
-            align-items: flex-end;
-            padding: 24px;
-        }
-
-        .service-label {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 20px;
-            font-weight: 400;
-            color: #fff;
-            letter-spacing: 0.5px;
-        }
-
-        /* WHY US */
-        .why {
-            padding: 100px 60px;
-            background: var(--warm-white);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .why-image {
-            position: relative;
-        }
-
-        .why-image img {
-            width: 100%;
-            height: 560px;
-            object-fit: cover;
-        }
-
-        .why-image-tag {
-            position: absolute;
-            bottom: -24px;
-            right: -24px;
-            background: var(--gold);
-            color: #fff;
-            padding: 24px 28px;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 14px;
-            letter-spacing: 1px;
-            text-align: center;
-            line-height: 1.5;
-        }
-
-        .why-content {}
-
-        .why-list {
-            list-style: none;
-            margin-top: 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 28px;
-        }
-
-        .why-item {
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-        }
-
-        .why-icon {
-            width: 40px;
-            height: 40px;
-            border: 1px solid var(--sand);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            color: var(--gold);
-            font-size: 14px;
-        }
-
-        .why-item-title {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--dark);
-            margin-bottom: 4px;
-            letter-spacing: 0.3px;
-        }
-
-        .why-item-desc {
-            font-size: 13px;
-            color: var(--taupe);
-            line-height: 1.6;
-        }
-
-        .why-actions {
-            display: flex;
-            gap: 16px;
-            margin-top: 44px;
-        }
-
-        /* REVIEWS */
-        .reviews {
-            padding: 100px 60px;
-            background: var(--cream);
-        }
-
-        .reviews-track-wrap {
-            overflow: hidden;
-            margin-top: 48px;
-            position: relative;
-        }
-
-        .reviews-track {
-            display: flex;
-            gap: 20px;
-            transition: transform 0.4s ease;
-        }
-
-        .review-card {
-            background: var(--warm-white);
-            padding: 32px;
-            min-width: 340px;
-            flex-shrink: 0;
-            border: 1px solid var(--sand);
-        }
-
-        .review-stars {
-            display: flex;
-            gap: 4px;
-            margin-bottom: 16px;
-        }
-
-        .review-stars i { color: var(--gold); font-size: 12px; }
-
-        .review-text {
-            font-size: 14px;
-            line-height: 1.7;
-            color: var(--mid);
-            margin-bottom: 24px;
-        }
-
-        .review-author {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .review-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--sand);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 16px;
-            color: var(--gold);
-            font-weight: 500;
-        }
-
-        .review-name {
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--dark);
-        }
-
-        .review-date {
-            font-size: 11px;
-            color: var(--taupe);
-            margin-top: 2px;
-        }
-
-        .reviews-nav {
-            display: flex;
-            gap: 12px;
-            margin-top: 36px;
-        }
-
-        .reviews-btn {
-            width: 44px;
-            height: 44px;
-            border: 1px solid var(--sand);
-            background: transparent;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--mid);
-            font-size: 14px;
-            transition: all 0.2s;
-        }
-
-        .reviews-btn:hover {
-            border-color: var(--gold);
-            color: var(--gold);
-        }
-
-        /* GALLERY */
-        .gallery {
-            padding: 100px 60px;
-            background: var(--warm-white);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(2, 240px);
-            gap: 12px;
-            margin-top: 48px;
-        }
-
-        .gallery-item {
-            overflow: hidden;
-            position: relative;
-        }
-
-        .gallery-item:first-child {
-            grid-row: span 2;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-item:hover img { transform: scale(1.05); }
-
-        /* BRANDS */
-        .brands {
-            padding: 80px 60px;
-            background: var(--cream);
-            text-align: center;
-        }
-
-        .brands-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 28px;
-            font-weight: 300;
-            color: var(--dark);
-            margin-bottom: 48px;
-        }
-
-        .brands-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 60px;
-            flex-wrap: wrap;
-        }
-
-        .brand-item {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 20px;
-            font-weight: 400;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--taupe);
-            transition: color 0.2s;
-        }
-
-        .brand-item:hover { color: var(--gold); }
-
-        /* CTA BANNER */
-        .cta-banner {
-            padding: 100px 60px;
-            background: var(--dark);
-            text-align: center;
-        }
-
-        .cta-banner .section-eyebrow { color: var(--gold-light); }
-
-        .cta-banner .section-title { color: #fff; text-align: center; }
-
-        .cta-banner p {
-            font-size: 15px;
-            color: rgba(255,255,255,0.55);
-            margin: 20px auto 44px;
-            max-width: 480px;
-            line-height: 1.7;
-        }
-
-        .cta-banner .section-eyebrow { text-align: center; }
-
-        /* CONTACTS */
-        .contacts {
-            padding: 100px 60px;
-            background: var(--warm-white);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-        }
-
-        .contacts-info {}
-
-        .contacts-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            margin-bottom: 32px;
-        }
-
-        .contacts-icon {
-            width: 40px;
-            height: 40px;
-            border: 1px solid var(--sand);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold);
-            font-size: 14px;
-            flex-shrink: 0;
-        }
-
-        .contacts-label {
-            font-size: 11px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--taupe);
-            margin-bottom: 4px;
-        }
-
-        .contacts-value {
-            font-size: 15px;
-            color: var(--dark);
-            font-weight: 400;
-        }
-
-        .contacts-form {}
-
-        .form-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 28px;
-            font-weight: 300;
-            color: var(--dark);
-            margin-bottom: 28px;
-        }
-
-        .form-group {
-            margin-bottom: 16px;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 14px 16px;
-            border: 1px solid var(--sand);
-            background: var(--cream);
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
-            color: var(--dark);
-            outline: none;
-            transition: border-color 0.2s;
-            appearance: none;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: var(--gold);
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder { color: var(--taupe); }
-
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
-        .form-success {
-            display: none;
-            background: var(--cream);
-            border: 1px solid var(--gold);
-            padding: 20px;
-            text-align: center;
-            color: var(--gold);
-            font-size: 14px;
-            margin-top: 16px;
-        }
-
-        /* FOOTER */
-        footer {
-            background: var(--dark);
-            padding: 60px;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 40px;
-            align-items: start;
-        }
-
-        .footer-logo-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 18px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #fff;
-            margin-bottom: 8px;
-        }
-
-        .footer-logo-sub {
-            font-size: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--taupe);
-            margin-bottom: 20px;
-        }
-
-        .footer-desc {
-            font-size: 13px;
-            color: rgba(255,255,255,0.4);
-            line-height: 1.7;
-        }
-
-        .footer-col-title {
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 20px;
-        }
-
-        .footer-links {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .footer-links a {
-            text-decoration: none;
-            font-size: 13px;
-            color: rgba(255,255,255,0.5);
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover { color: var(--gold); }
-
-        .footer-social {
-            display: flex;
-            gap: 12px;
-            margin-top: 24px;
-        }
-
-        .social-btn {
-            width: 38px;
-            height: 38px;
-            border: 1px solid rgba(255,255,255,0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255,255,255,0.5);
-            font-size: 14px;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-
-        .social-btn:hover {
-            border-color: var(--gold);
-            color: var(--gold);
-        }
-
-        .footer-bottom {
-            background: var(--dark);
-            border-top: 1px solid rgba(255,255,255,0.07);
-            padding: 20px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer-bottom p {
-            font-size: 12px;
-            color: rgba(255,255,255,0.3);
-        }
-
-        /* MODAL */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(44,36,22,0.6);
-            z-index: 200;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-overlay.active { display: flex; }
-
-        .modal {
-            background: var(--warm-white);
-            padding: 48px;
-            max-width: 480px;
-            width: 90%;
-            position: relative;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px; right: 20px;
-            background: none;
-            border: none;
-            font-size: 18px;
-            color: var(--taupe);
-            cursor: pointer;
-        }
-
-        .modal-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 32px;
-            font-weight: 300;
-            color: var(--dark);
-            margin-bottom: 8px;
-        }
-
-        .modal-sub {
-            font-size: 13px;
-            color: var(--taupe);
-            margin-bottom: 28px;
-        }
-
-        /* SCROLL REVEAL */
-        .reveal {
-            opacity: 0;
-            transform: translateY(28px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: none;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
-            nav { padding: 16px 24px; }
-            .nav-links { display: none; }
-            .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; }
-            .hero-visual { height: 320px; }
-            .services { padding: 60px 24px; }
-            .services-grid { grid-template-columns: 1fr 1fr; }
-            .services-grid .service-card:first-child { grid-column: span 2; }
-            .why { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
-            .why-image img { height: 320px; }
-            .reviews { padding: 60px 24px; }
-            .gallery { padding: 60px 24px; }
-            .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-            .gallery-item:first-child { grid-row: span 1; }
-            .brands { padding: 60px 24px; }
-            .cta-banner { padding: 60px 24px; }
-            .contacts { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
-            footer { grid-template-columns: 1fr; padding: 40px 24px; }
-            .footer-bottom { padding: 16px 24px; flex-direction: column; gap: 8px; text-align: center; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -890,7 +29,7 @@
         <li><a href="#reviews">Отзывы</a></li>
         <li><a href="#gallery">Работы</a></li>
         <li><a href="#contacts">Контакты</a></li>
-        <li><a href="#" class="nav-cta" onclick="openModal()">Записаться</a></li>
+        <li><a href="tel:+79516155723" class="nav-cta">Позвонить</a></li>
     </ul>
 </nav>
 
@@ -905,17 +44,13 @@
             Премиальный уход и профессиональный подход в атмосфере уюта и элегантности. Доверьте свою красоту мастерам Avenue la Beauté.
         </p>
         <div class="hero-actions">
-            <button class="btn-primary" onclick="openModal()">Записаться</button>
-            <button class="btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Наши услуги</button>
+            <a href="tel:+79516155723" class="btn-primary">Позвонить</a>
+            <a href="#services" class="btn-outline">Наши услуги</a>
         </div>
     </div>
     <div class="hero-visual reveal">
-        <img class="hero-img-main" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="Салон красоты">
-        <img class="hero-img-accent" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&q=80" alt="Мастер">
-        <div class="hero-badge">
-            <span class="hero-badge-num">5+</span>
-            <span class="hero-badge-text">лет опыта</span>
-        </div>
+        <img class="hero-img-main" src="https://storage.yandexcloud.net/avenueimages/photo_10_2026-06-11_02-37-50.jpg" alt="Салон красоты">
+        <img class="hero-img-accent" src="https://storage.yandexcloud.net/avenueimages/photo_3_2026-06-11_02-37-50.jpg" alt="Салон красоты">
     </div>
 </section>
 
@@ -929,31 +64,31 @@
     </div>
     <div class="services-grid reveal">
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800&q=80" alt="Комплексные услуги">
+            <img src="https://storage.yandexcloud.net/avenueimages/photo_2_2026-06-11_02-37-50.jpg" alt="Комплексные услуги">
             <div class="service-overlay">
                 <span class="service-label">Комплексные услуги</span>
             </div>
         </div>
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?w=400&q=80" alt="Уход за волосами">
+            <img src="https://storage.yandexcloud.net/avenueimages/photo_8_2026-06-11_02-37-50.jpg" alt="Уход за волосами">
             <div class="service-overlay">
                 <span class="service-label">Уход за волосами</span>
             </div>
         </div>
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400&q=80" alt="Уход за руками">
+            <img src="https://storage.yandexcloud.net/avenueimages/photo_9_2026-06-11_02-37-50.jpg" alt="Маникюр">
             <div class="service-overlay">
-                <span class="service-label">Уход за руками</span>
+                <span class="service-label">Маникюр</span>
             </div>
         </div>
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&q=80" alt="Уход за лицом">
+            <img src="https://storage.yandexcloud.net/avenueimages/photo_12_2026-06-11_02-37-50.jpg" alt="Педикюр">
             <div class="service-overlay">
-                <span class="service-label">Уход за лицом и телом</span>
+                <span class="service-label">Педикюр</span>
             </div>
         </div>
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1515688594390-b649af70d282?w=400&q=80" alt="Макияж">
+            <img src="https://storage.yandexcloud.net/avenueimages/photo_7_2026-06-11_02-37-50.jpg" alt="Макияж">
             <div class="service-overlay">
                 <span class="service-label">Макияж</span>
             </div>
@@ -964,10 +99,7 @@
 <!-- WHY US -->
 <section class="why" id="why">
     <div class="why-image reveal">
-        <img src="https://storage.yandexcloud.net/timenote/tmp/31c9b27ec3e8ab683a63d0168b91ac77163c838ee3904756325c4f8fe071bcc5.jpg" alt="Avenue la Beauté">
-        <div class="why-image-tag">
-            Avenue<br>la Beauté
-        </div>
+        <img src="https://storage.yandexcloud.net/avenueimages/photo_13_2026-06-11_02-37-50.jpg" alt="Avenue la Beauté">
     </div>
     <div class="why-content reveal">
         <div class="section-eyebrow">Почему мы</div>
@@ -1003,8 +135,8 @@
             </li>
         </ul>
         <div class="why-actions">
-            <button class="btn-primary" onclick="openModal()">Записаться</button>
-            <button class="btn-outline" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">Связаться</button>
+            <a href="#contacts" class="btn-primary">Контакты</a>
+            <a href="tel:+79516155723" class="btn-outline">Позвонить</a>
         </div>
     </div>
 </section>
@@ -1102,25 +234,25 @@
     </div>
     <div class="gallery-grid reveal">
         <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="Работа 1">
+            <img src="https://storage.yandexcloud.net/avenueimages/photo_2_2026-06-11_02-37-50.jpg" alt="Работа 1">
         </div>
         <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400&q=80" alt="Работа 2">
+            <img src="https://storage.yandexcloud.net/avenueimages/photo_12_2026-06-11_02-37-50.jpg" alt="Работа 2">
         </div>
         <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?w=400&q=80" alt="Работа 3">
+            <img src="https://storage.yandexcloud.net/avenueimages/photo_11_2026-06-11_02-37-50.jpg" alt="Работа 3">
         </div>
         <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=400&q=80" alt="Работа 4">
+            <img src="https://storage.yandexcloud.net/avenueimages/photo_5_2026-06-11_02-37-50.jpg" alt="Работа 4">
         </div>
         <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&q=80" alt="Работа 5">
+            <img src="https://storage.yandexcloud.net/avenueimages/photo_6_2026-06-11_02-37-50.jpg" alt="Работа 5">
         </div>
         <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1515688594390-b649af70d282?w=400&q=80" alt="Работа 6">
+            <img src="https://storage.yandexcloud.net/avenueimages/photo_7_2026-06-11_02-37-50.jpg" alt="Работа 6">
         </div>
         <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&q=80" alt="Работа 7">
+            <img src="https://storage.yandexcloud.net/avenueimages/photo_8_2026-06-11_02-37-50.jpg" alt="Работа 7">
         </div>
     </div>
 </section>
@@ -1129,86 +261,57 @@
 <section class="brands">
     <p class="brands-title reveal">Работаем на премиальных косметических брендах</p>
     <div class="brands-row reveal">
-        <span class="brand-item">Davines</span>
-        <span class="brand-item">Gigi</span>
-        <span class="brand-item">Nashi</span>
-        <span class="brand-item">Luxio</span>
-        <span class="brand-item">Tokio Inkarami</span>
-        <span class="brand-item">Bandi</span>
+        <span class="brand-item">Бренд 1</span>
+        <span class="brand-item">Бренд 2</span>
+        <span class="brand-item">Бренд 3</span>
+        <span class="brand-item">Бренд 4</span>
+        <span class="brand-item">Бренд 5</span>
+        <span class="brand-item">Бренд 6</span>
     </div>
 </section>
 
 <!-- CTA BANNER -->
 <section class="cta-banner">
-    <div class="section-eyebrow reveal">Запись онлайн</div>
+    <div class="section-eyebrow reveal">Свяжитесь с нами</div>
     <h2 class="section-title reveal">Готовы к преображению?</h2>
-    <p class="reveal">Запишитесь прямо сейчас и получите бесплатную консультацию специалиста</p>
-    <button class="btn-primary reveal" onclick="openModal()">Записаться онлайн</button>
+    <p class="reveal">Позвоните нам или приходите в салон — мы будем рады подобрать для вас идеальный уход</p>
+    <a href="tel:+79516155723" class="cta-phone reveal">+7 (951) 615‒57‒23</a>
 </section>
 
 <!-- CONTACTS -->
 <section class="contacts" id="contacts">
-    <div class="contacts-info reveal">
+    <div class="contacts-inner reveal">
         <div class="section-eyebrow">Мы здесь</div>
-        <h2 class="section-title" style="margin-bottom:40px;">Контакты</h2>
-        <div class="contacts-item">
-            <div class="contacts-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <div>
-                <div class="contacts-label">Адрес</div>
-                <div class="contacts-value">г. Кемерово, пр. Московский, 18</div>
-            </div>
-        </div>
-        <div class="contacts-item">
-            <div class="contacts-icon"><i class="fa-solid fa-phone"></i></div>
-            <div>
-                <div class="contacts-label">Телефон</div>
-                <div class="contacts-value">+7 (923) 518-77-00</div>
-            </div>
-        </div>
-        <div class="contacts-item">
-            <div class="contacts-icon"><i class="fa-solid fa-clock"></i></div>
-            <div>
-                <div class="contacts-label">Режим работы</div>
-                <div class="contacts-value">Ежедневно: 9:00 — 21:00</div>
-            </div>
-        </div>
-        <div class="contacts-item">
-            <div class="contacts-icon"><i class="fa-brands fa-instagram"></i></div>
-            <div>
-                <div class="contacts-label">Социальные сети</div>
-                <div class="contacts-value">@avenue_la_beaute</div>
-            </div>
-        </div>
-    </div>
-    <div class="contacts-form reveal">
-        <div class="form-title">Оставить заявку</div>
-        <form id="contactForm" onsubmit="submitForm(event)">
-            <div class="form-row">
-                <div class="form-group">
-                    <input type="text" placeholder="Ваше имя" required>
-                </div>
-                <div class="form-group">
-                    <input type="tel" placeholder="Телефон" required>
+        <h2 class="section-title" style="margin-bottom:48px;">Контакты</h2>
+        <div class="contacts-grid">
+            <div class="contacts-item">
+                <div class="contacts-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div>
+                    <div class="contacts-label">Адрес</div>
+                    <div class="contacts-value">г. Кемерово, ул. Сарыгина 31</div>
                 </div>
             </div>
-            <div class="form-group">
-                <select>
-                    <option value="" disabled selected>Выберите услугу</option>
-                    <option>Уход за волосами</option>
-                    <option>Маникюр / Педикюр</option>
-                    <option>Уход за лицом</option>
-                    <option>Макияж</option>
-                    <option>Комплексные услуги</option>
-                </select>
+            <div class="contacts-item">
+                <div class="contacts-icon"><i class="fa-solid fa-phone"></i></div>
+                <div>
+                    <div class="contacts-label">Телефон</div>
+                    <div class="contacts-value"><a href="tel:+79516155723">+7 (951) 615‒57‒23</a></div>
+                </div>
             </div>
-            <div class="form-group">
-                <textarea rows="4" placeholder="Комментарий (необязательно)"></textarea>
+            <div class="contacts-item">
+                <div class="contacts-icon"><i class="fa-solid fa-clock"></i></div>
+                <div>
+                    <div class="contacts-label">Режим работы</div>
+                    <div class="contacts-value">Ежедневно: 9:00 — 21:00</div>
+                </div>
             </div>
-            <button type="submit" class="btn-primary" style="width:100%;">Отправить заявку</button>
-        </form>
-        <div class="form-success" id="formSuccess">
-            <i class="fa-solid fa-check" style="margin-right:8px;"></i>
-            Заявка отправлена! Мы свяжемся с вами в ближайшее время.
+            <div class="contacts-item">
+                <div class="contacts-icon"><i class="fa-brands fa-instagram"></i></div>
+                <div>
+                    <div class="contacts-label">Социальные сети</div>
+                    <div class="contacts-value">@avenue_la_beaute</div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -1220,9 +323,7 @@
         <div class="footer-logo-sub">Салон красоты</div>
         <p class="footer-desc">Бережное отношение к вашей красоте. Премиальное качество и безопасность.</p>
         <div class="footer-social">
-            <a href="#" class="social-btn"><i class="fa-brands fa-vk"></i></a>
-            <a href="#" class="social-btn"><i class="fa-brands fa-telegram"></i></a>
-            <a href="#" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://t.me/avenuelabeaute" class="social-btn"><i class="fa-brands fa-telegram"></i></a>
         </div>
     </div>
     <div>
@@ -1238,102 +339,19 @@
     <div>
         <div class="footer-col-title">Услуги</div>
         <ul class="footer-links">
-            <li><a href="#">Уход за волосами</a></li>
-            <li><a href="#">Маникюр и педикюр</a></li>
-            <li><a href="#">Уход за лицом</a></li>
-            <li><a href="#">Макияж</a></li>
-            <li><a href="#">Комплексные услуги</a></li>
+            <li><a href="#services">Уход за волосами</a></li>
+            <li><a href="#services">Маникюр и педикюр</a></li>
+            <li><a href="#services">Уход за лицом</a></li>
+            <li><a href="#services">Макияж</a></li>
+            <li><a href="#services">Комплексные услуги</a></li>
         </ul>
     </div>
 </footer>
 <div class="footer-bottom">
-    <p>© 2025 Avenue la Beauté. Все права защищены.</p>
+    <p>© 2026 Avenue la Beauté. Все права защищены.</p>
     <p>Салон красоты, г. Кемерово</p>
 </div>
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
-    <div class="modal">
-        <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
-        <div class="modal-title">Записаться</div>
-        <p class="modal-sub">Оставьте контакты — мы свяжемся с вами для подтверждения</p>
-        <form onsubmit="submitModal(event)">
-            <div class="form-group">
-                <input type="text" placeholder="Ваше имя" required>
-            </div>
-            <div class="form-group">
-                <input type="tel" placeholder="Номер телефона" required>
-            </div>
-            <div class="form-group">
-                <select>
-                    <option value="" disabled selected>Выберите услугу</option>
-                    <option>Уход за волосами</option>
-                    <option>Маникюр / Педикюр</option>
-                    <option>Уход за лицом</option>
-                    <option>Макияж</option>
-                    <option>Комплексные услуги</option>
-                </select>
-            </div>
-            <button type="submit" class="btn-primary" style="width:100%;margin-top:8px;">Отправить</button>
-        </form>
-    </div>
-</div>
-
-<script>
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.12 });
-    reveals.forEach(r => observer.observe(r));
-
-    // Reviews slider
-    let reviewOffset = 0;
-    function slideReviews(dir) {
-        const track = document.getElementById('reviewsTrack');
-        const cardW = track.querySelector('.review-card').offsetWidth + 20;
-        const maxOffset = track.scrollWidth - track.parentElement.offsetWidth;
-        reviewOffset = Math.max(0, Math.min(reviewOffset + dir * cardW, maxOffset));
-        track.style.transform = `translateX(-${reviewOffset}px)`;
-    }
-
-    // Modal
-    function openModal() {
-        document.getElementById('modalOverlay').classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-    function closeModal() {
-        document.getElementById('modalOverlay').classList.remove('active');
-        document.body.style.overflow = '';
-    }
-    function closeModalOutside(e) {
-        if (e.target === document.getElementById('modalOverlay')) closeModal();
-    }
-    function submitModal(e) {
-        e.preventDefault();
-        closeModal();
-    }
-
-    // Contact form
-    function submitForm(e) {
-        e.preventDefault();
-        document.getElementById('contactForm').style.display = 'none';
-        document.getElementById('formSuccess').style.display = 'block';
-    }
-
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-        const nav = document.getElementById('navbar');
-        if (window.scrollY > 40) {
-            nav.style.boxShadow = '0 2px 20px rgba(44,36,22,0.08)';
-        } else {
-            nav.style.boxShadow = 'none';
-        }
-    });
-</script>
+<script src="script.js"></script>
 </body>
 </html>
