@@ -1176,3 +1176,289 @@ footer {
     .mobile-menu-links a { font-size: 20px; }
     .mobile-menu-links { gap: 22px; }
 }
+
+
+/* ============================================
+   ОБНОВЛЁННЫЕ СТИЛИ — добавь в КОНЕЦ style.css
+   (они переопределят базовые, адаптив не трогаем)
+   ============================================ */
+
+:root {
+    --gold-grad: linear-gradient(135deg, #C9A96E 0%, #D4B88A 50%, #A8854A 100%);
+    --shadow-soft: 0 20px 50px -20px rgba(44, 36, 22, 0.18);
+    --shadow-card: 0 10px 30px -12px rgba(44, 36, 22, 0.12);
+}
+
+/* --- Тонкая текстура фона страницы --- */
+body {
+    background:
+        radial-gradient(circle at 15% 10%, rgba(201,169,110,0.06), transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(201,169,110,0.05), transparent 40%),
+        var(--warm-white);
+}
+
+/* ============================================
+   NAV — чище, с подсветкой ссылок
+   ============================================ */
+.nav-logo-icon {
+    background: var(--gold-grad);
+    border: none;
+    color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 4px 14px -4px rgba(168,133,74,0.5);
+    transition: transform 0.3s ease;
+}
+.nav-logo:hover .nav-logo-icon { transform: rotate(-4deg) scale(1.05); }
+
+.nav-links a:not(.nav-cta) {
+    position: relative;
+    padding-bottom: 4px;
+}
+.nav-links a:not(.nav-cta)::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 0; height: 1px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+}
+.nav-links a:not(.nav-cta):hover::after { width: 100%; }
+
+.nav-cta {
+    background: var(--gold-grad) !important;
+    border-radius: 2px;
+    box-shadow: 0 6px 18px -6px rgba(168,133,74,0.55);
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 24px -8px rgba(168,133,74,0.7); }
+
+/* ============================================
+   HERO — больше глубины
+   ============================================ */
+.hero {
+    background:
+        radial-gradient(ellipse at 70% 50%, rgba(232,220,200,0.5), transparent 60%),
+        var(--warm-white);
+    position: relative;
+}
+
+.hero-title em {
+    background: var(--gold-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn-primary {
+    background: var(--gold-grad);
+    border-radius: 2px;
+    box-shadow: 0 8px 22px -8px rgba(168,133,74,0.5);
+    position: relative;
+    overflow: hidden;
+}
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -120%;
+    width: 60%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+    transition: left 0.6s ease;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -10px rgba(168,133,74,0.65); }
+.btn-primary:hover::before { left: 120%; }
+
+.btn-outline { border-radius: 2px; transition: all 0.3s ease; }
+.btn-outline:hover { background: var(--gold); border-color: var(--gold); color: #fff; transform: translateY(-2px); }
+
+.hero-img-main {
+    box-shadow: var(--shadow-soft);
+    border-radius: 2px;
+}
+.hero-img-accent {
+    box-shadow: 0 16px 36px -16px rgba(44,36,22,0.3);
+    border-radius: 2px;
+}
+
+/* ============================================
+   SECTION TITLE — декоративный штрих
+   ============================================ */
+.section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+.section-eyebrow::before {
+    content: '';
+    width: 24px; height: 1px;
+    background: var(--gold);
+}
+
+/* ============================================
+   SERVICES — мягче overlay, акцент при наведении
+   ============================================ */
+.service-card {
+    border-radius: 3px;
+    box-shadow: var(--shadow-card);
+}
+.service-overlay {
+    background: linear-gradient(to top, rgba(44,36,22,0.78) 0%, rgba(44,36,22,0.12) 55%, transparent 100%);
+    transition: background 0.4s ease;
+}
+.service-card:hover .service-overlay {
+    background: linear-gradient(to top, rgba(168,133,74,0.82) 0%, rgba(44,36,22,0.15) 60%, transparent 100%);
+}
+.service-label {
+    transform: translateY(0);
+    transition: transform 0.4s ease;
+}
+.service-card:hover .service-label { transform: translateY(-4px); }
+.service-label::after {
+    content: '';
+    display: block;
+    width: 0; height: 1px;
+    background: rgba(255,255,255,0.7);
+    margin-top: 6px;
+    transition: width 0.4s ease 0.05s;
+}
+.service-card:hover .service-label::after { width: 40px; }
+
+/* ============================================
+   WHY US — карточки иконок оживают
+   ============================================ */
+.why-image img {
+    border-radius: 3px;
+    box-shadow: var(--shadow-soft);
+}
+.why-image::before {
+    content: '';
+    position: absolute;
+    top: 18px; left: 18px;
+    right: -18px; bottom: -18px;
+    border: 1px solid var(--gold);
+    z-index: -1;
+    border-radius: 3px;
+    opacity: 0.5;
+}
+.why-item {
+    transition: transform 0.3s ease;
+}
+.why-item:hover { transform: translateX(6px); }
+.why-icon {
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+.why-item:hover .why-icon {
+    background: var(--gold-grad);
+    border-color: transparent;
+    color: #fff;
+    transform: rotate(8deg);
+}
+
+/* ============================================
+   REVIEWS — изящные карточки с кавычкой
+   ============================================ */
+.review-card {
+    border-radius: 3px;
+    border-color: transparent;
+    box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
+}
+.review-card::before {
+    content: '\201C';
+    position: absolute;
+    top: -10px; right: 18px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 90px;
+    color: rgba(201,169,110,0.18);
+    line-height: 1;
+}
+.review-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--gold-grad);
+    transition: height 0.4s ease;
+}
+.review-card:hover::after { height: 100%; }
+.review-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px -16px rgba(44,36,22,0.18);
+}
+.review-avatar {
+    background: var(--gold-grad);
+    color: #fff;
+}
+
+/* ============================================
+   GALLERY — рамка-акцент при наведении
+   ============================================ */
+.gallery-item {
+    border-radius: 3px;
+}
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 0 solid var(--gold);
+    transition: border-width 0.3s ease, background 0.4s ease;
+    background: rgba(44,36,22,0);
+    pointer-events: none;
+}
+.gallery-item:hover::after {
+    border-width: 6px;
+    background: rgba(168,133,74,0.08);
+}
+
+/* ============================================
+   BRANDS — разделители
+   ============================================ */
+.brands-title::after {
+    content: '';
+    display: block;
+    width: 50px; height: 1px;
+    background: var(--gold);
+    margin: 18px auto 0;
+}
+.brand-item { position: relative; }
+
+/* ============================================
+   CTA BANNER — теплее, с виньеткой
+   ============================================ */
+.cta-banner {
+    background:
+        radial-gradient(circle at 50% 0%, rgba(201,169,110,0.14), transparent 55%),
+        var(--dark);
+    position: relative;
+}
+
+/* ============================================
+   CONTACTS — иконки в кружках
+   ============================================ */
+.contacts-item { transition: transform 0.3s ease; }
+.contacts-item:hover { transform: translateY(-3px); }
+.contacts-icon {
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+.contacts-item:hover .contacts-icon {
+    background: var(--gold-grad);
+    border-color: transparent;
+    color: #fff;
+}
+
+/* ============================================
+   FOOTER — акцент на соцкнопке
+   ============================================ */
+.social-btn {
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+.social-btn:hover {
+    background: var(--gold-grad);
+    border-color: transparent;
+    color: #fff;
+    transform: translateY(-2px);
+}
+.footer-links a { transition: color 0.25s ease, padding-left 0.25s ease; }
+.footer-links a:hover { padding-left: 6px; }
