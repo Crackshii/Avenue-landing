@@ -1176,34 +1176,3 @@ footer {
     .mobile-menu-links a { font-size: 20px; }
     .mobile-menu-links { gap: 22px; }
 }
-
-/* ============================================
-   RESPONSIVE — ОЧЕНЬ МАЛЕНЬКИЙ ЭКРАН (≤400px)
-   ============================================ */
-@media (max-width: 400px) {
-    .hero-visual { height: 240px; }
-    .hero-img-main { width: 70%; height: 80%; }
-    .hero-img-accent { width: 50%; height: 50%; }
-
-    .review-card {
-        padding: 20px 16px;
-    }
-
-    .review-text {
-        font-size: 13px;
-    }
-
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        grid-auto-rows: 200px;
-    }
-
-    .brands-row { gap: 16px 24px; }
-    .brand-item { font-size: 12px; }
-
-    .cta-phone { font-size: 24px; letter-spacing: 1px; }
-
-    .btn-primary,
-    .btn-outline { padding: 12px 24px; font-size: 11px; }
-}
-
