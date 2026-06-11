@@ -473,7 +473,7 @@ nav {
 }
 
 /* ============================================
-   REVIEWS — ИСПРАВЛЕННАЯ СЕКЦИЯ
+   REVIEWS — БЕЗ СЛАЙДЕРА, СЕТКА/РЯД ПО ЦЕНТРУ
    ============================================ */
 .reviews {
     padding: 100px 60px;
@@ -481,24 +481,32 @@ nav {
 }
 
 .reviews-track-wrap {
-    overflow: hidden;
+    overflow: visible;
     margin-top: 48px;
     position: relative;
 }
 
 .reviews-track {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
-    transition: transform 0.4s ease;
+    /* Убираем transition и transform для слайдера */
 }
 
 .review-card {
     background: var(--warm-white);
     padding: 32px;
-    min-width: 340px;
-    max-width: 400px;
-    flex-shrink: 0;
+    width: calc(33.333% - 40px);
+    min-width: 280px;
+    flex: 1 1 300px;
     border: 1px solid var(--sand);
+    transition: all 0.2s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(44,36,22,0.06);
 }
 
 .review-stars {
@@ -507,7 +515,10 @@ nav {
     margin-bottom: 16px;
 }
 
-.review-stars i { color: var(--gold); font-size: 12px; }
+.review-stars i {
+    color: var(--gold);
+    font-size: 12px;
+}
 
 .review-text {
     font-size: 14px;
@@ -549,28 +560,9 @@ nav {
     margin-top: 2px;
 }
 
+/* Скрываем кнопки навигации слайдера на всех экранах */
 .reviews-nav {
-    display: flex;
-    gap: 12px;
-}
-
-.reviews-btn {
-    width: 44px;
-    height: 44px;
-    border: 1px solid var(--sand);
-    background: transparent;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--mid);
-    font-size: 14px;
-    transition: all 0.2s;
-}
-
-.reviews-btn:hover {
-    border-color: var(--gold);
-    color: var(--gold);
+    display: none;
 }
 
 /* ============================================
@@ -882,7 +874,7 @@ footer {
 
 /* Карточка 2 (комплексные услуги) */
 .service-card:nth-child(2) img {
-    object-position: center 20%;
+    object-position: center 60%;
 }
 
 /* Карточка 3 (маникюр) */
@@ -1082,10 +1074,7 @@ footer {
     .why-actions .btn-primary,
     .why-actions .btn-outline { text-align: center; width: 100%; }
 
-    /* =============================================
-       REVIEWS — ГЛАВНОЕ ИСПРАВЛЕНИЕ ДЛЯ МОБИЛЬНЫХ
-       На мобильных: вертикальный список вместо слайдера
-       ============================================= */
+        /* REVIEWS — ВЕРТИКАЛЬНЫЙ СПИСОК ДЛЯ МОБИЛЬНЫХ */
     .reviews {
         padding: 48px 16px;
     }
@@ -1093,19 +1082,25 @@ footer {
     .reviews-track-wrap {
         overflow: visible;
         margin-top: 32px;
+        width: 100%;
     }
 
     .reviews-track {
         flex-direction: column;
         gap: 16px;
-        transform: none !important;
+        align-items: center; /* Центрируем карточки по горизонтали */
+        justify-content: center;
+        width: 100%;
     }
 
     .review-card {
-        min-width: 100%;
-        max-width: 100%;
         width: 100%;
+        max-width: 100%;
+        min-width: unset;
+        flex: none; /* Убираем растягивание */
         padding: 24px 20px;
+        margin: 0; /* Убираем лишние отступы */
+        box-sizing: border-box;
     }
 
     .review-text {
@@ -1139,11 +1134,6 @@ footer {
         font-size: 11px;
     }
 
-    /* Скрываем кнопки навигации слайдера на мобильных */
-    .reviews-nav {
-        display: none;
-    }
-
     /* Gallery */
     .gallery { padding: 48px 16px; }
     .gallery-grid {
@@ -1170,9 +1160,17 @@ footer {
     .contacts-value { font-size: 14px; }
 
     /* Footer */
-    footer { grid-template-columns: 1fr; padding: 36px 16px; gap: 28px; }
-    .footer-bottom { padding: 14px 16px; }
-    .footer-bottom p { font-size: 11px; }
+    footer {
+        grid-template-columns: 1fr 1fr; /* Две равные колонки */
+        padding: 36px 16px;
+        gap: 28px 16px; /* Отступы между колонками */
+    }
+
+    /* Первый блок (логотип и описание) — на всю ширину */
+    footer > div:first-child {
+        grid-column: span 2; /* Растягиваем на две колонки */
+        text-align: center; /* Центрируем контент, опционально */
+    }
 
     /* Mobile menu */
     .mobile-menu-links a { font-size: 20px; }
