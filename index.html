@@ -37,12 +37,10 @@
     <!-- CANONICAL -->
     <link rel="canonical" href="https://avenue-la-beaute.ru">
 
-    <!-- ФАВИКОН (добавьте свой файл favicon.ico в корень) -->
     <link rel="icon" href="/favicon.ico">
 
-    <!-- ШРИФТЫ И СТИЛИ -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -66,13 +64,16 @@
 </script>
 <body>
 
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
 <!-- NAV -->
 <nav id="navbar">
     <a href="#" class="nav-logo">
         <div class="nav-logo-icon">LB</div>
         <div>
             <div class="nav-logo-text">Avenue la Beauté</div>
-            <div class="nav-logo-sub">Салон красоты</div>
+            <div class="nav-logo-sub">Салон красоты · Кемерово</div>
         </div>
     </a>
 
@@ -85,7 +86,6 @@
         <li><a href="tel:+79516155723" class="nav-cta">Позвонить</a></li>
     </ul>
 
-    <!-- Бургер-кнопка (видна только на мобильных) -->
     <button class="nav-burger" id="navBurger" aria-label="Меню">
         <span></span>
         <span></span>
@@ -93,38 +93,91 @@
     </button>
 </nav>
 
-<!-- Мобильное меню -->
 <div class="mobile-menu" id="mobileMenu">
-    <ul class="mobile-menu-links">
-        <li><a href="#services">Услуги</a></li>
-        <li><a href="#why">О нас</a></li>
-        <li><a href="#reviews">Отзывы</a></li>
-        <li><a href="#gallery">Работы</a></li>
-        <li><a href="#contacts">Контакты</a></li>
-        <li><a href="tel:+79516155723" class="mobile-menu-cta">Позвонить</a></li>
-    </ul>
+    <div class="mobile-menu-inner">
+        <p class="mobile-menu-label">Меню</p>
+        <ul class="mobile-menu-links">
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#why">О нас</a></li>
+            <li><a href="#reviews">Отзывы</a></li>
+            <li><a href="#gallery">Работы</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+            <li><a href="tel:+79516155723" class="mobile-menu-cta">Позвонить</a></li>
+        </ul>
+    </div>
 </div>
 
 <!-- HERO -->
 <section class="hero" id="home">
-    <div class="hero-content reveal">
-        <div class="hero-eyebrow">Салон красоты</div>
-        <h1 class="hero-title">
-            Искусство<br>вашей <em>красоты</em>
-        </h1>
-        <p class="hero-desc">
-            Премиальный уход и профессиональный подход в атмосфере уюта и элегантности. Доверьте свою красоту мастерам Avenue la Beauté.
-        </p>
-        <div class="hero-actions">
-            <a href="tel:+79516155723" class="btn-primary">Позвонить</a>
-            <a href="https://n1480587.yclients.com/company/1337466/personal/menu?o=" class="btn-outline">Записаться онлайн</a>
+    <div class="hero-bg">
+        <img src="https://storage.yandexcloud.net/avenueimages/photo_2_2026-06-11_02-37-50.jpg" alt="Бекграунд салона красоты" fetchpriority="high">
+        <div class="hero-bg-overlay"></div>
+    </div>
+
+    <div class="hero-inner">
+        <div class="hero-content reveal">
+            <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                Премиальный салон · Кемерово
+            </div>
+            <h1 class="hero-title">
+                Искусство<br>вашей <em>красоты</em>
+            </h1>
+            <p class="hero-desc">
+                Премиальный уход и профессиональный подход в атмосфере уюта и элегантности. Доверьте свою красоту мастерам Avenue la Beauté.
+            </p>
+            <div class="hero-actions">
+                <a href="https://n1480587.yclients.com/company/1337466/personal/menu?o=" class="btn-primary">
+                    <span>Записаться онлайн</span>
+                </a>
+                <a href="tel:+79516155723" class="btn-outline">+7 (951) 615-57-23</a>
+            </div>
+            <div class="hero-stats reveal">
+                <div class="hero-stat">
+                    <span class="hero-stat-num">09–21</span>
+                    <span class="hero-stat-label">Ежедневно</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-num">5★</span>
+                    <span class="hero-stat-label">Рейтинг клиентов</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-num">5+</span>
+                    <span class="hero-stat-label">Направлений</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-visual reveal">
+            <div class="hero-frame hero-frame-main">
+                <img class="hero-img-main" src="https://storage.yandexcloud.net/avenueimages/photo_10_2026-06-11_02-37-50.jpg" alt="Салон красоты Avenue la Beauté Кемерово" fetchpriority="high">
+            </div>
+            <div class="hero-frame hero-frame-accent">
+                <img class="hero-img-accent" src="https://storage.yandexcloud.net/avenueimages/photo_3_2026-06-11_02-37-50.jpg" alt="Интерьер салона Avenue la Beauté" loading="lazy">
+            </div>
         </div>
     </div>
-    <div class="hero-visual reveal">
-        <img class="hero-img-main" src="https://storage.yandexcloud.net/avenueimages/photo_10_2026-06-11_02-37-50.jpg" alt="Салон красоты Avenue la Beauté Кемерово" loading="lazy">
-        <img class="hero-img-accent" src="https://storage.yandexcloud.net/avenueimages/photo_3_2026-06-11_02-37-50.jpg" alt="Салон красоты Avenue la Beauté Кемерово" loading="lazy">
-    </div>
+
 </section>
+
+<div class="marquee-strip">
+    <div class="marquee-track">
+        <span>Маникюр</span><span class="marquee-dot">◆</span>
+        <span>Педикюр</span><span class="marquee-dot">◆</span>
+        <span>Уход за волосами</span><span class="marquee-dot">◆</span>
+        <span>Макияж</span><span class="marquee-dot">◆</span>
+        <span>Оформление бровей</span><span class="marquee-dot">◆</span>
+        <span>Комплексные услуги</span><span class="marquee-dot">◆</span>
+        <span>Маникюр</span><span class="marquee-dot">◆</span>
+        <span>Педикюр</span><span class="marquee-dot">◆</span>
+        <span>Уход за волосами</span><span class="marquee-dot">◆</span>
+        <span>Макияж</span><span class="marquee-dot">◆</span>
+        <span>Оформление бровей</span><span class="marquee-dot">◆</span>
+        <span>Комплексные услуги</span><span class="marquee-dot">◆</span>
+    </div>
+</div>
 
 <!-- SERVICES -->
 <section class="services" id="services">
@@ -133,6 +186,7 @@
             <div class="section-eyebrow">Что мы предлагаем</div>
             <h2 class="section-title">Наши направления</h2>
         </div>
+        <p class="section-desc">Каждая процедура — это ритуал заботы о себе в атмосфере абсолютного комфорта</p>
     </div>
     <div class="services-grid reveal">
         <div class="service-card">
@@ -172,6 +226,10 @@
 <section class="why" id="why">
     <div class="why-image reveal">
         <img src="https://storage.yandexcloud.net/avenueimages/photo_13_2026-06-11_02-37-50.jpg" alt="Салон красоты Avenue la Beauté Кемерово" loading="lazy">
+        <div class="why-image-badge">
+            <span>Est. 2024</span>
+            <span>Avenue la Beauté</span>
+        </div>
     </div>
     <div class="why-content reveal">
         <div class="section-eyebrow">Почему мы</div>
@@ -215,14 +273,11 @@
 
 <!-- REVIEWS -->
 <section class="reviews" id="reviews">
+    <div class="reviews-glow" aria-hidden="true"></div>
     <div class="section-header reveal">
         <div>
             <div class="section-eyebrow">Мнения клиентов</div>
             <h2 class="section-title">Наши отзывы</h2>
-        </div>
-        <div class="reviews-nav">
-            <button class="reviews-btn" onclick="slideReviews(-1)"><i class="fa-solid fa-arrow-left"></i></button>
-            <button class="reviews-btn" onclick="slideReviews(1)"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
     </div>
     <div class="reviews-track-wrap reveal">
@@ -279,6 +334,7 @@
             <div class="section-eyebrow">Портфолио</div>
             <h2 class="section-title">Наши работы</h2>
         </div>
+        <p class="section-desc">Каждый визит — маленькое произведение искусства</p>
     </div>
     <div class="gallery-grid reveal">
         <div class="gallery-item">
@@ -290,7 +346,7 @@
         <div class="gallery-item">
             <img src="https://storage.yandexcloud.net/avenueimages/photo_11_2026-06-11_02-37-50.jpg" alt="Работа 3" loading="lazy">
         </div>
-        <div class="gallery-item" style="grid-row: span 2;">
+        <div class="gallery-item gallery-item-tall">
             <img src="https://storage.yandexcloud.net/avenueimages/photo_8_2026-06-11_02-37-50.jpg" alt="Работа 4" loading="lazy">
         </div>
         <div class="gallery-item">
@@ -305,29 +361,42 @@
 <!-- BRANDS -->
 <section class="brands">
     <p class="brands-title reveal">Работаем на премиальных косметических брендах</p>
-    <div class="brands-row reveal">
-        <span class="brand-item">Бренд 1</span>
-        <span class="brand-item">Бренд 2</span>
-        <span class="brand-item">Бренд 3</span>
-        <span class="brand-item">Бренд 4</span>
-        <span class="brand-item">Бренд 5</span>
-        <span class="brand-item">Бренд 6</span>
+    <div class="brands-marquee reveal">
+        <div class="brands-track">
+            <span class="brand-item">La Biosthétique</span>
+            <span class="brand-item">OPI</span>
+            <span class="brand-item">CND</span>
+            <span class="brand-item">Kérastase</span>
+            <span class="brand-item">MAC</span>
+            <span class="brand-item">Estée Lauder</span>
+            <span class="brand-item">La Biosthétique</span>
+            <span class="brand-item">OPI</span>
+            <span class="brand-item">CND</span>
+            <span class="brand-item">Kérastase</span>
+            <span class="brand-item">MAC</span>
+            <span class="brand-item">Estée Lauder</span>
+        </div>
     </div>
 </section>
 
 <!-- CTA BANNER -->
 <section class="cta-banner">
-    <div class="section-eyebrow reveal">Свяжитесь с нами</div>
-    <h2 class="section-title reveal">Готовы к преображению?</h2>
-    <p class="reveal">Позвоните нам или приходите в салон — мы будем рады подобрать для вас идеальный уход</p>
-    <a href="tel:+79516155723" class="cta-phone reveal">+7 (951) 615‒57‒23</a>
+    <div class="cta-inner">
+        <div class="section-eyebrow reveal">Свяжитесь с нами</div>
+        <h2 class="section-title reveal">Готовы к <em>преображению</em>?</h2>
+        <p class="reveal">Позвоните нам или приходите в салон — мы будем рады подобрать для вас идеальный уход</p>
+        <div class="cta-actions reveal">
+            <a href="tel:+79516155723" class="cta-phone">+7 (951) 615‒57‒23</a>
+            <a href="https://n1480587.yclients.com/company/1337466/personal/menu?o=" class="btn-primary btn-light">Записаться онлайн</a>
+        </div>
+    </div>
 </section>
 
 <!-- CONTACTS -->
 <section class="contacts" id="contacts">
     <div class="contacts-inner reveal">
         <div class="section-eyebrow">Мы здесь</div>
-        <h2 class="section-title" style="margin-bottom:48px;">Контакты</h2>
+        <h2 class="section-title contacts-title">Контакты</h2>
         <div class="contacts-grid">
             <div class="contacts-item">
                 <div class="contacts-icon"><i class="fa-solid fa-location-dot"></i></div>
@@ -368,7 +437,7 @@
         <div class="footer-logo-sub">Салон красоты</div>
         <p class="footer-desc">Бережное отношение к вашей красоте. Премиальное качество и безопасность.</p>
         <div class="footer-social">
-            <a href="https://t.me/avenuelabeaute" class="social-btn"><i class="fa-brands fa-telegram"></i></a>
+            <a href="https://t.me/avenuelabeaute" class="social-btn" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
         </div>
     </div>
     <div>
