@@ -1534,8 +1534,8 @@ footer {
     .hero-actions .btn-primary,
     .hero-actions .btn-outline { width: 100%; justify-content: center; }
     .hero-visual { height: 300px; }
-    .hero-frame-main { width: 68%; height: 92%; top: 0px;}
-    .hero-frame-accent { width: 44%; height: 48%; border-width: 3px; left: 0px; height: 60%;}
+    .hero-frame-main { width: 68%; height: 92%; top: 0px; border: 1.5px solid var(--espresso);}
+    .hero-frame-accent { width: 44%; height: 48%; border-width: 3px; left: 0px; height: 60%; border: 1.5px solid var(--espresso);}
     .hero-scroll { display: none; }
 
     .services-grid {
