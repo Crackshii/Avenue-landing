@@ -355,6 +355,7 @@ nav.hero-nav .nav-burger { border-color: rgba(255,255,255,0.25); }
     font-family: 'Inter', sans-serif;
     text-decoration: none;
     transition: all 0.35s var(--ease-out);
+    background: rgba(255,255,255,0.08);
 }
 
 .btn-outline:hover {
