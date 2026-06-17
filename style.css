@@ -1307,6 +1307,10 @@ nav.hero-nav .nav-burger { border-color: rgba(255,255,255,0.25); }
     transition: all 0.35s var(--ease-out);
 }
 
+.contacts-map{
+    padding-top: 20px;
+}
+
 .contacts-item:hover .contacts-icon {
     background: var(--gold-grad);
     border-color: transparent;
